@@ -7,7 +7,7 @@ import App from './Components/App';
 import movies from './Reducers';
 
 const store = createStore(movies);
-// console.log('before',store.getState());
+console.log('store',store);
 // store.dispatch({
 //   type:'ADD_MOVIES',
 //   movies: [{name:'Superman'}]
