@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import ReactDOM from 'react-dom';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
@@ -45,9 +45,22 @@ const store = createStore(rootReducer,applyMiddleware(logger,thunk));
 // });
 // console.log('after',store);
 
+//Context is used to share state/store between varies components at varies level of depth.
+//Without Context we have to pass state/store as props from root to that particular component which is a very tedious task to do.
+export const StoreContext = createContext();
+console.log('Store context',StoreContext);
+
+class Provider extends React.Component{
+  render(){
+    const {store} = this.props;
+    return <StoreContext.Provider value={store} >
+      {this.props.children}
+    </StoreContext.Provider>
+  }
+}
 ReactDOM.render(
-  <React.StrictMode>
-    <App store={store} />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
