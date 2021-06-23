@@ -1,5 +1,6 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import './index.css';
@@ -47,52 +48,52 @@ const store = createStore(rootReducer,applyMiddleware(logger,thunk));
 
 //Context is used to share state/store between varies components at varies level of depth.
 //Without Context we have to pass state/store as props from root to that particular component which is a very tedious task to do.
-export const StoreContext = createContext();
-console.log('Store context',StoreContext);
+// export const StoreContext = createContext();
+// console.log('Store context',StoreContext);
 
-class Provider extends React.Component{
-  render(){
-    const {store} = this.props;
-    return <StoreContext.Provider value={store} >
-      {this.props.children}
-    </StoreContext.Provider>
-  }
-}
+// class Provider extends React.Component{
+//   render(){
+//     const {store} = this.props;
+//     return <StoreContext.Provider value={store} >
+//       {this.props.children}
+//     </StoreContext.Provider>
+//   }
+// }
 
 //Implemented connect function
 // const connectedAppComponent = connect(callback)(App);
-export function connect(callback){
-  return function(Component){
-      class ConnectedComponent extends React.Component{
-      constructor(props){
-        super(props);
-        this.unsubsribe = this.props.store.subscribe(() => this.forceUpdate());
-      }
-      componentWillUnmount(){
-        this.unsubsribe();
-      }
-      render(){
-          const {store} = this.props;
-          const state = store.getState();
-          const dataToBePassAsProps = callback(state);
-          return (
-             <Component {...dataToBePassAsProps} dispatch={store.dispatch}/>
-          );
-      }
-    }
+// export function connect(callback){
+//   return function(Component){
+//       class ConnectedComponent extends React.Component{
+//       constructor(props){
+//         super(props);
+//         this.unsubsribe = this.props.store.subscribe(() => this.forceUpdate());
+//       }
+//       componentWillUnmount(){
+//         this.unsubsribe();
+//       }
+//       render(){
+//           const {store} = this.props;
+//           const state = store.getState();
+//           const dataToBePassAsProps = callback(state);
+//           return (
+//              <Component {...dataToBePassAsProps} dispatch={store.dispatch}/>
+//           );
+//       }
+//     }
   
-  class connectedComponentWrapper extends React.Component{
-    render(){
-      return (
-        <StoreContext.Consumer>
-          {(store) => <ConnectedComponent store={store}/> }
-        </StoreContext.Consumer>
-      );
-    }
-  }
-  return connectedComponentWrapper;
-  };
-}
+//   class connectedComponentWrapper extends React.Component{
+//     render(){
+//       return (
+//         <StoreContext.Consumer>
+//           {(store) => <ConnectedComponent store={store}/> }
+//         </StoreContext.Consumer>
+//       );
+//     }
+//   }
+//   return connectedComponentWrapper;
+//   };
+// }
 ReactDOM.render(
   <Provider store={store}>
     <App />
