@@ -12,12 +12,12 @@ class App extends React.Component{
       this.forceUpdate();
     })
     store.dispatch(addMovies(data));
-    console.log('movies',this.props.store.getState());
+    console.log('store',this.props);
   }
 
   isMovieFavourite = (movie)=>{
-    const {favourites} = this.props.store.getState();
-    const index = favourites.indexOf(movie);
+    const {movies} = this.props.store.getState();
+    const index = movies.favourites.indexOf(movie);
     if(index !== -1){
       //found the movie
       return true;
@@ -29,7 +29,8 @@ class App extends React.Component{
     this.props.store.dispatch(setShowFavourites(val))
   }
   render(){
-    const { list,favourites,showFavourites} = this.props.store.getState();
+    const {movies} =this.props.store.getState();
+    const { list,favourites,showFavourites} = movies;
     const displayMovies = showFavourites?favourites:list;
     console.log('state in render',this.props.store.getState());
     

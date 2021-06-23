@@ -4,9 +4,10 @@ import { createStore } from 'redux';
 
 import './index.css';
 import App from './Components/App';
-import movies from './Reducers';
+import rootReducer from './Reducers';
 
-const store = createStore(movies);
+console.log('rootreducer',rootReducer);
+const store = createStore(rootReducer);
 console.log('store',store);
 // store.dispatch({
 //   type:'ADD_MOVIES',

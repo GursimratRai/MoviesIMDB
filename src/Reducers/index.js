@@ -8,7 +8,16 @@ const initialMoviesState = {
     showFavourites:false
 }
 
-export default function movies(state=initialMoviesState,action){
+const intialSearchState = {
+    result:{}
+}
+
+const initialRootState = {
+    movies:initialMoviesState,
+    search:intialSearchState
+}
+
+export function movies(state=initialMoviesState,action){
 
     switch(action.type){
         case ADD_MOVIES:
@@ -42,14 +51,15 @@ export default function movies(state=initialMoviesState,action){
             return state
         
     }
-    // if(action.type === ADD_MOVIES){
-    //     //returns a new state
-    //     return {
-    //         //copy the previous state
-    //         ...state,
-    //         //modify only the list field of previous state
-    //         list:action.movies
-    //     }
-    // }
-    // return state;
+}
+
+export function search (state=intialSearchState,action){
+    return state;
+}
+
+export default function rootReducer(state=initialRootState,action){
+    return {
+        movies:movies(state.movies,action),
+        search:search(state.search,action)
+    }
 }
