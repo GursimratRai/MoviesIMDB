@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 
 import './index.css';
 import App from './Components/App';
 import rootReducer from './Reducers';
 
-const store = createStore(rootReducer);
+//Curry Function
+//curried form of function logger(obj,next,action)
+//logger(obj)(next)(action) internally by redux.
+const logger = function({dispatch,getState}){
+  return function(next){
+    return function(action){
+      //middleware
+      console.log('MIDDLEWARE ACTION TYPE=',action.type);
+      next(action);
+    }
+  }
+}
+
+const store = createStore(rootReducer,applyMiddleware(logger));
 // store.dispatch({
 //   type:'ADD_MOVIES',
 //   movies: [{name:'Superman'}]
