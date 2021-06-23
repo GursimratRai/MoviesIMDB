@@ -1,7 +1,8 @@
 import React from 'react';
 // import { data } from '../data';
 import {addMovieToList,handleMovieSearch} from '../Actions';
-import {StoreContext} from '../index';
+import {connect} from '../index';
+
 class Navbar extends React.Component{
     constructor(props){
         super(props);
@@ -57,13 +58,22 @@ class Navbar extends React.Component{
 //Context can only be used in render function.
 //As we use ComponentDidMount above which required store .
 //So we make a wrapper over Navbar to pass Context as props to the component.
-class NavbarWrapper extends React.Component{
-    render(){
-        return (
-            <StoreContext.Consumer>
-                {(store)=> <Navbar dispatch={store.dispatch}  search={this.props.search} />}
-            </StoreContext.Consumer>
-        )
+// class NavbarWrapper extends React.Component{
+//     render(){
+//         return (
+//             <StoreContext.Consumer>
+//                 {(store)=> <Navbar dispatch={store.dispatch}  search={this.props.search} />}
+//             </StoreContext.Consumer>
+//         )
+//     }
+// }
+
+function mapStateToProps ({search}){
+    return {
+        search
     }
 }
-export default NavbarWrapper;
+
+const connectedNavbarComponent = connect(mapStateToProps)(Navbar);
+
+export default connectedNavbarComponent;
