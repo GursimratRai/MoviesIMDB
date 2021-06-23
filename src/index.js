@@ -6,9 +6,7 @@ import './index.css';
 import App from './Components/App';
 import rootReducer from './Reducers';
 
-console.log('rootreducer',rootReducer);
 const store = createStore(rootReducer);
-console.log('store',store);
 // store.dispatch({
 //   type:'ADD_MOVIES',
 //   movies: [{name:'Superman'}]

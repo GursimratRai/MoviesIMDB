@@ -12,7 +12,6 @@ class App extends React.Component{
       this.forceUpdate();
     })
     store.dispatch(addMovies(data));
-    console.log('store',this.props);
   }
 
   isMovieFavourite = (movie)=>{
