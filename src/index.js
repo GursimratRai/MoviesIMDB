@@ -9,16 +9,22 @@ import rootReducer from './Reducers';
 //Curry Function
 //curried form of function logger(obj,next,action)
 //logger(obj)(next)(action) internally by redux.
-const logger = function({dispatch,getState}){
-  return function(next){
-    return function(action){
-      //middleware
-      console.log('MIDDLEWARE ACTION TYPE=',action.type);
-      next(action);
-    }
-  }
-}
+//Method 1 :
+// const logger = function({dispatch,getState}){
+//   return function(next){
+//     return function(action){
+//       //middleware
+//       console.log('MIDDLEWARE ACTION TYPE=',action.type);
+//       next(action);
+//     }
+//   }
+// }
 
+//Method 2: using arrow function
+const logger = ({dispatch,getState}) => (next) => (action) => {
+  console.log("MIDDLEWARE ACTION TYPE=",action.type);
+  next(action);
+}
 const store = createStore(rootReducer,applyMiddleware(logger));
 // store.dispatch({
 //   type:'ADD_MOVIES',
