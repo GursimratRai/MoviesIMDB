@@ -27,8 +27,6 @@ class App extends React.Component{
     const {movies,search} = this.props;
     const { list,favourites,showFavourites} = movies;
     const displayMovies = showFavourites?favourites:list;
-    console.log('state in render',this.props);
-
     
     return (
       <div className="App">

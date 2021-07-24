@@ -24,7 +24,7 @@ import rootReducer from './Reducers';
 //Method 2: using arrow function
 const logger = ({dispatch,getState}) => (next) => (action) => {
   if(typeof action !== 'function'){
-    console.log("MIDDLEWARE ACTION TYPE=",action.type);
+    // console.log("MIDDLEWARE ACTION TYPE=",action.type);
   }
   next(action);
 }

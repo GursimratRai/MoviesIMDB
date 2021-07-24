@@ -19,13 +19,13 @@ const intialSearchState = {
     showSearchResults : false
 }
 
-const initialRootState = {
-    movies:initialMoviesState,
-    search:intialSearchState
-}
+// const initialRootState = {
+//     movies:initialMoviesState,
+//     search:intialSearchState
+// }
 
 export function movies(state=initialMoviesState,action){
-     console.log('MOVIES REDUCER');
+    //  console.log('MOVIES REDUCER');
     switch(action.type){
         case ADD_MOVIES:
             return {
