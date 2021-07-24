@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/MoviesIMDB/static/css/main.6613d2a2.chunk.css",
+    "main.js": "/MoviesIMDB/static/js/main.a985f05d.chunk.js",
+    "main.js.map": "/MoviesIMDB/static/js/main.a985f05d.chunk.js.map",
+    "runtime-main.js": "/MoviesIMDB/static/js/runtime-main.bcd8ce04.js",
+    "runtime-main.js.map": "/MoviesIMDB/static/js/runtime-main.bcd8ce04.js.map",
+    "static/js/2.5fcc3bb0.chunk.js": "/MoviesIMDB/static/js/2.5fcc3bb0.chunk.js",
+    "static/js/2.5fcc3bb0.chunk.js.map": "/MoviesIMDB/static/js/2.5fcc3bb0.chunk.js.map",
+    "index.html": "/MoviesIMDB/index.html",
+    "static/css/main.6613d2a2.chunk.css.map": "/MoviesIMDB/static/css/main.6613d2a2.chunk.css.map",
+    "static/js/2.5fcc3bb0.chunk.js.LICENSE.txt": "/MoviesIMDB/static/js/2.5fcc3bb0.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/MoviesIMDB/static/media/bg.b12d7f95.jfif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bcd8ce04.js",
+    "static/js/2.5fcc3bb0.chunk.js",
+    "static/css/main.6613d2a2.chunk.css",
+    "static/js/main.a985f05d.chunk.js"
+  ]
+}
