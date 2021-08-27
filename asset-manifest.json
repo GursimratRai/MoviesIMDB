@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/MoviesIMDB/static/css/main.2cea5c94.chunk.css",
-    "main.js": "/MoviesIMDB/static/js/main.05d25efb.chunk.js",
-    "main.js.map": "/MoviesIMDB/static/js/main.05d25efb.chunk.js.map",
+    "main.js": "/MoviesIMDB/static/js/main.f02e5626.chunk.js",
+    "main.js.map": "/MoviesIMDB/static/js/main.f02e5626.chunk.js.map",
     "runtime-main.js": "/MoviesIMDB/static/js/runtime-main.4fe870f1.js",
     "runtime-main.js.map": "/MoviesIMDB/static/js/runtime-main.4fe870f1.js.map",
     "static/js/2.49ef9aba.chunk.js": "/MoviesIMDB/static/js/2.49ef9aba.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.4fe870f1.js",
     "static/js/2.49ef9aba.chunk.js",
     "static/css/main.2cea5c94.chunk.css",
-    "static/js/main.05d25efb.chunk.js"
+    "static/js/main.f02e5626.chunk.js"
   ]
 }
